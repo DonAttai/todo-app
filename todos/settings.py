@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     
 
     'tasks.apps.TasksConfig',
-    'crispy_forms'
+    'users.apps.UsersConfig',
+    'crispy_forms',
 
 ]
 
@@ -133,6 +134,10 @@ STATICFILES_DIRS = [
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
+
 
 
 

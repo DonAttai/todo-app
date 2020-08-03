@@ -1,0 +1,22 @@
+{% extends 'tasks/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="row">
+    <div class="card w-50 mx-auto">
+        <div class="card-body mt-0">
+            <h3 class="text-center">Register</h3>
+            <form method="POST" action="" autocomplete="off">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Sign Up" class=" btn-sm btn btn-outline-info"><a href="{% url 'login' %}"></a>
+                <small class="text-muted ml-4">Already Have An Acount? <a href="{% url 'login' %}">Sign In</a></small> 
+            </form>
+        </div>   
+    </div>
+</div>
+
+
+{% endblock content %}
