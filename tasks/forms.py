@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from .models import *
 
 class TodoForm(forms.ModelForm):
-    title= forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Add a task...',
+    title= forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Add a todo...',
      'class': 'form-control'}))
 
 
