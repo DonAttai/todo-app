@@ -1,0 +1,28 @@
+{% extends 'tasks/base.html' %}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="card mx-auto w-50">
+        <div class="card-body">
+            <p>Are you sure you want to delete: <strong> "{{todo}}" </strong></p>
+            <div class="row">
+               
+                <div class="col-sm-1 my-1" >
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" class="btn-sm btn btn-outline-dark ml-4" >
+                    </form>
+                </div>
+                <div class="col-sm-1 my-1 ml-5" >
+                    <a class="btn-sm btn btn-outline-dark" href="{% url 'index'%}">Cancel</a>     
+                </div>
+            </div>        
+        </div>
+    </div>
+    
+    
+</div>
+
+{% endblock content %}
