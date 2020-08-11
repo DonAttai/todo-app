@@ -18,7 +18,7 @@
                 <ul class="list-group">
                     {% for todo in todos%}
                         <li class="list-group-item list-group-item-dark mb-2">
-                            {% if task.completed == True %}
+                            {% if todo.completed == True %}
                                 <strike>{{todo}}</strike>
                             {% else %}
                                 <span>{{todo}}</span>

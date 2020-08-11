@@ -9,13 +9,15 @@ from .forms import TodoForm
 
 @login_required(login_url='login')
 def index(request):
-    todos = Todo.objects.all()
-    form = TodoForm
+    todos = Todo.objects.filter(user=request.user)
+    form = TodoForm()
 
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save()
+            instance.user = request.user
+            instance.save()
         return redirect('/')
 
 
@@ -23,7 +25,7 @@ def index(request):
     return render(request, 'tasks/index.html', context)
 
 
-
+@login_required(login_url='login')
 def update(request, pk):
     todo = Todo.objects.get(id=pk)
 
@@ -40,6 +42,8 @@ def update(request, pk):
 
     return render(request, 'tasks/update.html', context)
 
+
+@login_required(login_url='login')
 def delete(request, pk):
     todo = Todo.objects.get(id=pk)
     
