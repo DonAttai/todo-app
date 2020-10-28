@@ -12,7 +12,7 @@
   <div class="collapse navbar-collapse" id="collapse-target">
       {% if user.is_authenticated %}
       <div class="navbar-nav mr-auto">
-          <a class="nav-link" href="{% url 'index' %}">Todo App</a>
+          <h5 class="nav-link active">Django Todo App</h5>
           <a class="nav-link" href="{% url 'index' %}">Home</a>
       </div>
 
@@ -22,9 +22,12 @@
       </div>     
 
       {% else %} 
+          <div class="navbar-nav mr-auto">
+            <h5 class="nav-link active">Django Todo App</h5>
+          </div>    
           <div class="navbar-nav ml-auto">
               <a class="nav-link" href="{% url 'register' %}">Register</a>
-              <a class="nav-link" href="{% url 'login' %}">Login</a>
+              <!-- <a class="nav-link" href="{% url 'login' %}">Login</a> -->
           </div>          
       {% endif %}
       <div class="row">
