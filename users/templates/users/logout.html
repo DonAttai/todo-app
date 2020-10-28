@@ -2,10 +2,10 @@
 {% extends 'tasks/base.html' %}
 
 {% block content %}
-<div class="card w-sm-50 mx-auto">
-    <div class="card-body text-center">
+<div class="col-8 col-sm-6 mx-auto">
+    <div class="card card-body text-center">
         <h4>You are logged out</h4>
-        <small class="muted-text"> <a href="{% url 'login' %}">Log In Again</a> </small>
+        <small class="muted-text"><a href="{% url 'login' %}" class="font-weight-bold">Log In Again</a> </small>
     </div>
 </div>
     

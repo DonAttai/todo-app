@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
+from django.contrib import messages
 
 
 from .models import *
@@ -12,14 +14,21 @@ def index(request):
     todos = Todo.objects.filter(user=request.user)
     form = TodoForm()
 
-    if request.method == 'POST':
-        form = TodoForm(request.POST)
-        if form.is_valid():
-            instance = form.save()
-            instance.user = request.user
-            instance.save()
-        return redirect('/')
+    try:
+        if request.method == 'POST':
+            form = TodoForm(request.POST)
+            if form.is_valid():
+                instance = form.save()
+                instance.user = request.user
+                instance.save()
+            return redirect('/')
 
+        
+    except IntegrityError as e:
+        if 'UNIQUE constraint' in str(e.args):
+            messages.info(request, 'Todo item already exits in the todo list')
+            return redirect('/')
+    
 
     context = {'todos': todos, 'form': form}
     return render(request, 'tasks/index.html', context)

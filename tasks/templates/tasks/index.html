@@ -5,8 +5,8 @@
 
 {% block content %}
 <div class="row">
-    <div class="card text-center w-sm-50 mx-auto">
-        <div class="card-body">
+    <div class="col-8 col-sm-6 mx-auto">
+        <div class="card card-body">
             <div class="form-group">
                 <form method="POST" action="/" autocomplete="off">
                     {% csrf_token %}
@@ -23,8 +23,10 @@
                             {% else %}
                                 <span>{{todo}}</span>
                             {% endif %} 
-                                <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'update' todo.id %}">Update</a>
-                                <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'delete' todo.id %}">Delete</a>
+                                <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'update' todo.id %}">
+                                Update</a>
+                                <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'delete' todo.id %}">
+                                Delete</a>
                         </li>
                     {% endfor%}
                 </ul>                 
