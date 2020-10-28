@@ -4,16 +4,18 @@
 
 
 {% block content %}
-<div class="card w-md-75 mx-auto">
-    <div class="card-body">
-        <h3>Update Todo</h3>
-        <form method="POST" action="">
-            {% csrf_token %}
-            {{ form|crispy }}
-    
-            <input type="submit" value="Update" class="btn-sm btn btn-outline-dark">
-        </form>
+<div class="row mt-3">
+    <div class="col-8 col-sm-6 mx-auto">
+        <div class="card card-body">
+            <h3>Update Todo</h3>
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Update" class="btn-sm btn btn-outline-dark">
+            </form>
+        </div>
     </div>
 </div>
+
    
 {% endblock content %}
