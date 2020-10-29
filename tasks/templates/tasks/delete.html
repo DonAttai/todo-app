@@ -6,14 +6,16 @@
 <div class="row mt-3">
     <div class="col-md-6 col-sm-12 mx-auto">
         <div class="card card-body">
-            <p>Are you sure you want to delete: <strong> "{{todo}}" </strong></p>
+            <div class="row">
+                <p class="col-md-6 col-sm-12">Are you sure you want to delete: <strong> "{{todo}}" </strong></p>
+            </div>
             <div class="row no-gutters">
-                <div class="col-sm-6 mx-auto d-flex align-items-center d-inline-block">
-                        <form method="POST" action="">
-                            {% csrf_token %}
-                            <input type="submit" value="Delete" class="btn-sm btn btn-outline-dark" >
-                        </form>  
-                        <a class="btn btn-outline-dark btn-sm ml-1" href="{% url 'index'%}">Cancel</a>     
+                <div class="col-md-6 col-sm-12 mx-auto d-flex align-items-center d-inline-block">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" class="btn-sm btn btn-outline-dark" >
+                    </form>  
+                    <a class="btn btn-outline-dark btn-sm ml-1" href="{% url 'index'%}">Cancel</a>     
                 </div>      
             </div>        
         </div>

@@ -17,16 +17,20 @@
             </div>
                 <ul class="list-group">
                     {% for todo in todos%}
-                        <li class="list-group-item list-group-item-dark mb-2">
+                        <li class="list-group-item list-group-item-dark d-flex justify-content-between mb-2">
                             {% if todo.completed == True %}
                                 <strike>{{todo}}</strike>
                             {% else %}
-                                <span>{{todo}}</span>
+                                    <span>{{todo}}</span>
                             {% endif %} 
-                                <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'update' todo.id %}">
-                                Update</a>
-                                <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'delete' todo.id %}">
-                                Delete</a>
+                                    <div>
+                                        <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'update' todo.id %}">
+                                            Update</a>
+                                        <a class="btn btn-sm btn-outline-dark float-right mx-1" href="{% url 'delete' todo.id %}">
+                                            Delete</a>
+                                    </div>
+                        
+                                
                         </li>
                     {% endfor%}
                 </ul>                 
